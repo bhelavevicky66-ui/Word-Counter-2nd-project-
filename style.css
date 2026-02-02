@@ -1,45 +1,148 @@
-body{
-background-image: url(Gemini_Generated_Image_p2644bp2644bp264.png);
-background-repeat: no-repeat;
-background-size: cover;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.contener{
-display: flex;
-padding-top: 20px;
-gap: 20px;
-/* backdrop-filter: blur(15px); */
+
+body {
+    background-image: url(Gemini_Generated_Image_p2644bp2644bp264.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-h1{
+
+h1 {
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
+    padding: 20px 0;
+    color: white;
+    /* Added for visibility on dark backgrounds often found in such apps */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Improved readability */
 }
-#div2{
+
+.contener {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Changed from flex-start to center to align the height differences */
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens */
+    width: 100%;
+}
+
+#textarea {
+    height: 70vh;
+    width: 60vw;
+    /* Reduced from 70vw to give space */
+    min-width: 300px;
+    font-size: 20px;
+    /* Base size */
+    font-family: inherit;
+    color: white;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    /* More standard glass effect */
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
     border: 2px solid gray;
-    height: 50vh;
-    width: 26vw;
-    font-size: 50px;
+    padding: 20px;
+    resize: none;
+    /* Prevents breaking layout */
+}
+
+#div2 {
+    border: 2px solid gray;
+    width: 25vw;
+    min-width: 250px;
+    height: auto;
+    /* Allow height to fit content */
+    min-height: 300px;
+    font-size: 1.5rem;
     border-radius: 30px;
-    backdrop-filter: 20px;
-    margin-top: 4.75rem;
+    margin-top: 0;
+    /* Removed fixed margin */
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     font-weight: bold;
-    text-indent: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    /* Ensure text is visible */
 }
-span{
-    font-size: 55px;
+
+#div2 p {
+    margin: 15px 0;
 }
-#o{
-    margin-top: -75px;
+
+span {
+    font-size: 1.2em;
+    /* Relative size instead of fixed 55px */
+    color: yellow;
+    /* Highlight color for stats */
 }
-#textarea{
- height:70vh;
- width: 70vw;
-font-size: 27px;
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-color: white;
-border-radius: 25px;
-background: transparent;
- backdrop-filter: blur(40px); 
-border: 2px solid gray;
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .contener {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #textarea {
+        width: 90vw;
+        height: 50vh;
+        order: 1;
+        /* Ensure text area is top on mobile if needed, or default is fine */
+    }
+
+    #div2 {
+        width: 90vw;
+        height: auto;
+        min-height: auto;
+        display: flex;
+        flex-direction: row;
+        /* Horizontal stats on mobile */
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        order: 2;
+        margin-top: 20px;
+        font-size: 1.2rem;
+    }
+
+    #div2 p {
+        margin: 10px;
+    }
+
+    #div2 br {
+        display: none;
+        /* Hide breaks in horizontal layout */
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #textarea {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    #div2 {
+        flex-direction: column;
+        /* Back to vertical for very small screens if needed, or keep horizontal */
+        align-items: center;
+    }
 }
